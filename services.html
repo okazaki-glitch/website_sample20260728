@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>利用案内 | 大学ICTサポートセンター</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-utility"><a href="#content">本文へ</a><a href="contact.html">お問い合わせ</a><a href="#">ENGLISH</a></div>
+      <div class="header-main">
+        <a class="brand" href="index.html"><span class="brand-mark">ICT</span><span><strong>大学ICTサポートセンター</strong><small>Information Technology Support</small></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="global-nav"><span></span><span></span><span></span></button>
+        <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
+          <a href="index.html">トップ</a><a href="services.html" aria-current="page">利用案内</a><a href="faq.html">FAQ</a><a href="status.html">障害情報</a><a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="page">
+      <div class="page-title">
+        <p class="eyebrow">Service Guide</p>
+        <h1>利用案内</h1>
+        <p>主要サービスの概要、対象者、問い合わせ先を一覧化しています。</p>
+      </div>
+      <section class="section">
+        <div class="service-table-wrap">
+          <table class="service-table">
+            <thead>
+              <tr><th>サービス</th><th>主な内容</th><th>対象</th><th>問い合わせ先</th></tr>
+            </thead>
+            <tbody>
+              <tr id="account"><th>アカウント・パスワード</th><td>統一認証ID、初期パスワード、パスワード再設定</td><td>学生・教職員</td><td><a href="contact.html">ICTヘルプデスク</a></td></tr>
+              <tr id="network"><th>学内Wi-Fi</th><td>SSID、接続手順、証明書、接続できない場合の確認事項</td><td>学生・教職員・非常勤</td><td><a href="faq.html#wifi">FAQを確認</a></td></tr>
+              <tr><th>VPN</th><td>学外から学内限定サービスを利用するための接続</td><td>教職員・申請済み学生</td><td><a href="contact.html">ネットワーク担当</a></td></tr>
+              <tr id="cloud"><th>Google Workspace</th><td>Gmail、Google Drive、Classroom、共有ドライブ</td><td>学生・教職員</td><td><a href="contact.html">クラウド担当</a></td></tr>
+              <tr><th>Microsoft 365</th><td>Officeアプリ、Teams、OneDrive、ライセンス確認</td><td>学生・教職員</td><td><a href="faq.html#office">FAQを確認</a></td></tr>
+              <tr><th>Zoom</th><td>授業・会議での利用、サインイン、録画の扱い</td><td>教職員・学生</td><td><a href="contact.html">授業支援担当</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="section two-column">
+        <div class="info-panel">
+          <h2>更新しやすい構成</h2>
+          <p>サービス一覧は表形式で管理し、Astro移行時はMarkdownまたはJSONから自動生成できます。担当者が増えても「本文データ」と「見た目」を分けて運用できます。</p>
+        </div>
+        <div class="info-panel">
+          <h2>WordPressから移行する時の考え方</h2>
+          <p>まずアクセス数が多いページ、問い合わせ削減に効くFAQ、障害情報の3点を優先して移し、ニュース記事の大量移行は必要な範囲に絞ります。</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div><strong>大学ICTサポートセンター</strong><p>静的サイトサンプル</p></div><nav><a href="index.html">トップ</a><a href="faq.html">FAQ</a><a href="contact.html">お問い合わせ</a></nav></footer>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

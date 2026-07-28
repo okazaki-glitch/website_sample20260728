@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>大学ICTサポートセンター</title>
+    <meta
+      name="description"
+      content="学生・教職員向けのICT利用案内、FAQ、障害情報、お問い合わせ窓口をまとめた静的サイトのサンプルです。"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-utility">
+        <a href="#content">本文へ</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="#">ENGLISH</a>
+      </div>
+      <div class="header-main">
+        <a class="brand" href="index.html" aria-label="大学ICTサポートセンター トップ">
+          <span class="brand-mark">ICT</span>
+          <span>
+            <strong>大学ICTサポートセンター</strong>
+            <small>Information Technology Support</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="global-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
+          <a href="index.html" aria-current="page">トップ</a>
+          <a href="services.html">利用案内</a>
+          <a href="faq.html">FAQ</a>
+          <a href="status.html">障害情報</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">学生・教職員向けICTサポート</p>
+          <h1>困ったときに、まず確認できる窓口をひとつに。</h1>
+          <p>
+            Google Workspace、Microsoft 365、無線LAN、VPN、Zoom、パスワードなど、学内ICTサービスの利用案内と問い合わせ先を整理したサンプルサイトです。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="contact.html">問い合わせ前に確認する</a>
+            <a class="button secondary" href="faq.html">FAQを見る</a>
+          </div>
+        </div>
+        <div class="status-panel" aria-live="polite">
+          <p class="panel-label">現在の運用状況</p>
+          <div id="status-summary" class="status-summary">読み込み中...</div>
+          <a href="status.html">詳細な障害情報を見る</a>
+        </div>
+      </section>
+
+      <section class="section quick-links" aria-labelledby="quick-title">
+        <div class="section-heading">
+          <p class="eyebrow">よく使われる案内</p>
+          <h2 id="quick-title">目的から探す</h2>
+        </div>
+        <div class="link-grid">
+          <a class="link-card" href="services.html#account">
+            <span class="icon">ID</span>
+            <strong>アカウント・パスワード</strong>
+            <span>統一認証、初期設定、再発行の案内</span>
+          </a>
+          <a class="link-card" href="services.html#network">
+            <span class="icon">Wi</span>
+            <strong>Wi-Fi・VPN</strong>
+            <span>学内無線LAN、学外接続、有線LAN</span>
+          </a>
+          <a class="link-card" href="services.html#cloud">
+            <span class="icon">365</span>
+            <strong>クラウドサービス</strong>
+            <span>Google Workspace、Microsoft 365、Zoom</span>
+          </a>
+          <a class="link-card" href="faq.html">
+            <span class="icon">?</span>
+            <strong>FAQ</strong>
+            <span>問い合わせ前に確認したい質問集</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section two-column">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">News</p>
+            <h2>お知らせ</h2>
+          </div>
+          <div id="news-list" class="news-list" aria-live="polite"></div>
+        </div>
+        <aside class="notice-box">
+          <h2>このサンプルの運用想定</h2>
+          <ul class="check-list">
+            <li>ページはHTML/CSS/JSだけで表示できます。</li>
+            <li>お知らせは <code>data/news.json</code> の編集で差し替えます。</li>
+            <li>障害情報は <code>data/status.json</code> の編集で切り替えます。</li>
+            <li>将来的にAstro化するとMarkdown運用に移行できます。</li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>大学ICTサポートセンター</strong>
+        <p>〒000-0000 広島県○○市○○町 1-1</p>
+      </div>
+      <nav aria-label="フッターナビゲーション">
+        <a href="services.html">利用案内</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="#">サイトポリシー</a>
+      </nav>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

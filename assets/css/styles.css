@@ -23,6 +23,7 @@ body {
   font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
   line-height: 1.75;
   background: var(--paper);
+  overflow-x: hidden;
 }
 
 a {
@@ -72,6 +73,7 @@ a {
   gap: 12px;
   color: var(--ink);
   text-decoration: none;
+  min-width: 0;
 }
 
 .brand-mark {
@@ -87,6 +89,10 @@ a {
 .brand strong,
 .brand small {
   display: block;
+}
+
+.brand strong {
+  line-height: 1.35;
 }
 
 .brand small {
@@ -161,7 +167,7 @@ a {
 .hero h1 {
   max-width: 760px;
   margin: 0 0 20px;
-  font-size: clamp(2.1rem, 5vw, 4rem);
+  font-size: 3.6rem;
   line-height: 1.18;
 }
 
@@ -186,6 +192,7 @@ a {
   border: 1px solid var(--primary);
   text-decoration: none;
   font-weight: 800;
+  text-align: center;
 }
 
 .button.primary {
@@ -352,7 +359,7 @@ a {
 }
 
 .page-title h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.8rem;
 }
 
 .service-table-wrap {
@@ -483,6 +490,15 @@ details p {
 }
 
 @media (max-width: 860px) {
+  .header-utility,
+  .header-main,
+  .site-footer,
+  .section,
+  .page-title,
+  .hero {
+    width: min(100% - 24px, 1120px);
+  }
+
   .header-main {
     min-height: 70px;
   }
@@ -519,7 +535,23 @@ details p {
 
   .hero {
     min-height: auto;
-    padding-top: 44px;
+    padding: 42px 0 36px;
+  }
+
+  .hero::before {
+    inset: 14px -12px 0;
+  }
+
+  .hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .page-title {
+    padding: 38px 0 20px;
+  }
+
+  .page-title h1 {
+    font-size: 2.3rem;
   }
 
   .link-grid {
@@ -533,14 +565,112 @@ details p {
 }
 
 @media (max-width: 560px) {
+  body {
+    font-size: 0.96rem;
+  }
+
   .header-utility {
     justify-content: flex-start;
     overflow-x: auto;
+    gap: 14px;
+    padding: 5px 0;
+    white-space: nowrap;
+  }
+
+  .header-main {
+    gap: 10px;
+    min-height: 62px;
   }
 
   .brand-mark {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+  }
+
+  .global-nav {
+    padding-inline: 12px;
+  }
+
+  .hero {
+    padding: 30px 0 28px;
+    gap: 18px;
+  }
+
+  .hero h1 {
+    margin-bottom: 14px;
+    font-size: 2rem;
+    line-height: 1.28;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    margin-top: 20px;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 46px;
+    padding-inline: 14px;
+  }
+
+  .status-panel,
+  .notice-box,
+  .info-panel,
+  .flow-step,
+  .status-entry {
+    padding: 18px;
+    box-shadow: none;
+  }
+
+  .status-summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 34px 0;
+  }
+
+  .section-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .page-title {
+    padding: 30px 0 18px;
+  }
+
+  .page-title h1 {
+    font-size: 2rem;
+  }
+
+  .page-title p {
+    margin-bottom: 0;
   }
 
   .link-grid,
@@ -548,12 +678,108 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .link-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .link-card .icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+  }
+
   .news-item {
     grid-template-columns: 1fr;
     gap: 2px;
   }
 
+  .service-table-wrap {
+    overflow: visible;
+    border: 0;
+  }
+
+  .service-table {
+    min-width: 0;
+    display: block;
+    background: transparent;
+  }
+
+  .service-table thead {
+    display: none;
+  }
+
+  .service-table tbody,
+  .service-table tr,
+  .service-table th,
+  .service-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .service-table tr {
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+
+  .service-table tbody th {
+    width: 100%;
+    padding: 14px 16px;
+    color: #fff;
+    background: var(--primary-dark);
+  }
+
+  .service-table td {
+    display: grid;
+    grid-template-columns: 7.5em minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service-table td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-weight: 800;
+  }
+
+  summary {
+    padding: 16px;
+  }
+
+  details p {
+    padding: 0 16px 16px;
+  }
+
+  .contact-flow {
+    gap: 12px;
+  }
+
   .site-footer {
     display: block;
+    padding: 26px 0;
+  }
+
+  .site-footer nav {
+    margin-top: 14px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand strong {
+    font-size: 0.88rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .service-table td {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

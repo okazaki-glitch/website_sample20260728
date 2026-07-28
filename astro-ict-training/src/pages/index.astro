@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const news = Object.entries(import.meta.glob("../content/news/*.md", { eager: true })).map(([path, post]) => ({
+  ...post,
+  slug: path.split("/").pop().replace(".md", ""),
+}));
+const formatDate = (date) => new Date(date).toISOString().slice(0, 10);
+const sortedNews = news.sort((a, b) => formatDate(b.frontmatter.date).localeCompare(formatDate(a.frontmatter.date)));
+---
+
+<BaseLayout title="トップ">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Astroで学ぶ静的サイト運用</p>
+      <h1>WordPressなしで、更新しやすいICTサポートサイトを作る。</h1>
+      <p>
+        この学習用サイトでは、共通レイアウト、Markdownのお知らせ、JSONの障害情報、静的HTML生成の流れを実際に確認できます。
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="/news/">お知らせ運用を見る</a>
+        <a class="button secondary" href="/faq/">FAQを見る</a>
+      </div>
+    </div>
+    <aside class="status-card">
+      <p class="panel-label">Astroで学ぶポイント</p>
+      <ul>
+        <li>ヘッダーとフッターを共通部品にする</li>
+        <li>お知らせをMarkdownファイルで増やす</li>
+        <li>ビルドして静的HTMLを生成する</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="section two-column">
+    <div>
+      <div class="section-heading">
+        <p class="eyebrow">News</p>
+        <h2>Markdownで管理するお知らせ</h2>
+      </div>
+      <div class="news-list">
+        {
+          sortedNews.slice(0, 3).map((post) => (
+            <article class="news-item">
+              <time datetime={formatDate(post.frontmatter.date)}>{formatDate(post.frontmatter.date)}</time>
+              <a href={`/news/${post.slug}/`}>{post.frontmatter.title}</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <aside class="notice-box">
+      <h2>更新体験</h2>
+      <p>
+        <code>src/content/news/</code> にMarkdownを1つ追加すると、お知らせ一覧と詳細ページに自動反映されます。
+      </p>
+    </aside>
+  </section>
+</BaseLayout>

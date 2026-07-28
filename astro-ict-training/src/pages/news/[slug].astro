@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = Object.entries(import.meta.glob("../../content/news/*.md", { eager: true })).map(([path, post]) => ({
+    ...post,
+    slug: path.split("/").pop().replace(".md", ""),
+  }));
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+const formattedDate = new Date(post.frontmatter.date).toISOString().slice(0, 10);
+---
+
+<BaseLayout title={post.frontmatter.title} description={post.frontmatter.summary}>
+  <article class="article">
+    <p class="eyebrow">News</p>
+    <h1>{post.frontmatter.title}</h1>
+    <time datetime={formattedDate}>{formattedDate}</time>
+    <Content />
+  </article>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import status from "../data/status.json";
+
+const label = status.status === "ok" ? "通常運用" : status.status === "maintenance" ? "メンテナンス" : "障害発生中";
+---
+
+<BaseLayout title="障害情報">
+  <div class="page-title">
+    <p class="eyebrow">System Status</p>
+    <h1>障害情報</h1>
+    <p>JSONファイルの値を読み込んで表示しています。</p>
+  </div>
+
+  <section class="section">
+    <article class={`status-entry ${status.status}`}>
+      <span class="status-pill">{label}</span>
+      <h2>{status.summary}</h2>
+      <p>{status.body}</p>
+      <time datetime={status.updated}>更新日：{status.updated}</time>
+    </article>
+  </section>
+</BaseLayout>

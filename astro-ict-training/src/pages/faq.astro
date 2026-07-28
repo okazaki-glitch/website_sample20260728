@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqs = Object.values(import.meta.glob("../content/faq/*.md", { eager: true }));
+---
+
+<BaseLayout title="FAQ">
+  <div class="page-title">
+    <p class="eyebrow">FAQ</p>
+    <h1>よくある質問</h1>
+    <p>FAQもMarkdownで管理できます。本文が長くなってもHTMLを直接編集する必要はありません。</p>
+  </div>
+
+  <section class="section faq-list">
+    {
+      faqs.map((faq) => {
+        const { Content } = faq;
+        return (
+          <details>
+            <summary>{faq.frontmatter.title}</summary>
+            <div class="faq-body">
+              <Content />
+            </div>
+          </details>
+        );
+      })
+    }
+  </section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const news = Object.entries(import.meta.glob("../../content/news/*.md", { eager: true })).map(([path, post]) => ({
+  ...post,
+  slug: path.split("/").pop().replace(".md", ""),
+}));
+const formatDate = (date) => new Date(date).toISOString().slice(0, 10);
+const sortedNews = news.sort((a, b) => formatDate(b.frontmatter.date).localeCompare(formatDate(a.frontmatter.date)));
+---
+
+<BaseLayout title="お知らせ">
+  <div class="page-title">
+    <p class="eyebrow">News</p>
+    <h1>お知らせ</h1>
+    <p>Markdownファイルを追加すると、この一覧に反映されます。</p>
+  </div>
+
+  <section class="section">
+    <div class="news-list large">
+      {
+        sortedNews.map((post) => (
+          <article class="news-item">
+            <time datetime={formatDate(post.frontmatter.date)}>{formatDate(post.frontmatter.date)}</time>
+            <a href={`/news/${post.slug}/`}>{post.frontmatter.title}</a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

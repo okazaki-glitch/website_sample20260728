@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  ["アカウント・パスワード", "統一認証ID、初期パスワード、パスワード再設定", "学生・教職員"],
+  ["学内Wi-Fi", "SSID、接続手順、証明書、接続できない場合の確認事項", "学生・教職員・非常勤"],
+  ["VPN", "学外から学内限定サービスを利用するための接続", "教職員・申請済み学生"],
+  ["Google Workspace", "Gmail、Google Drive、Classroom、共有ドライブ", "学生・教職員"],
+  ["Microsoft 365", "Officeアプリ、Teams、OneDrive、ライセンス確認", "学生・教職員"],
+  ["Zoom", "授業・会議での利用、サインイン、録画の扱い", "教職員・学生"],
+];
+---
+
+<BaseLayout title="利用案内">
+  <div class="page-title">
+    <p class="eyebrow">Service Guide</p>
+    <h1>利用案内</h1>
+    <p>ここでは配列データから一覧を生成しています。将来はJSONやCMS連携に置き換えられます。</p>
+  </div>
+
+  <section class="section card-grid">
+    {
+      services.map(([name, body, target]) => (
+        <article class="service-card">
+          <h2>{name}</h2>
+          <p>{body}</p>
+          <dl>
+            <dt>対象</dt>
+            <dd>{target}</dd>
+          </dl>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>

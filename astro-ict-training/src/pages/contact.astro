@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="お問い合わせ">
+  <div class="page-title">
+    <p class="eyebrow">Support</p>
+    <h1>お問い合わせ</h1>
+    <p>本番ではGoogleフォームやMicrosoft Formsへのリンクに置き換える想定です。</p>
+  </div>
+
+  <section class="section contact-flow">
+    <article>
+      <span>1</span>
+      <h2>FAQを確認</h2>
+      <p>よくある質問に解決策がないか確認します。</p>
+      <a href="/faq/">FAQを見る</a>
+    </article>
+    <article>
+      <span>2</span>
+      <h2>利用案内を確認</h2>
+      <p>対象者、手続き、窓口を確認します。</p>
+      <a href="/services/">利用案内を見る</a>
+    </article>
+    <article>
+      <span>3</span>
+      <h2>フォームで連絡</h2>
+      <p>解決しない場合は、所属・氏名・端末・エラー内容を添えて連絡します。</p>
+      <a href="#">問い合わせフォーム</a>
+    </article>
+  </section>
+</BaseLayout>

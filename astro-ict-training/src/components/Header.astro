@@ -1,0 +1,37 @@
+---
+const navItems = [
+  { href: "/", label: "トップ" },
+  { href: "/services/", label: "利用案内" },
+  { href: "/faq/", label: "FAQ" },
+  { href: "/status/", label: "障害情報" },
+  { href: "/contact/", label: "お問い合わせ" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-utility">
+    <a href="#content">本文へ</a>
+    <a href="/contact/">お問い合わせ</a>
+    <a href="#">ENGLISH</a>
+  </div>
+  <div class="header-main">
+    <a class="brand" href="/" aria-label="広島文化学園大学・短期大学システム開発管理センター トップ">
+      <span class="brand-mark">ICT</span>
+      <span>
+        <strong>広島文化学園大学・短期大学システム開発管理センター</strong>
+        <small>Information Technology Support</small>
+      </span>
+    </a>
+    <nav class="global-nav" aria-label="グローバルナビゲーション">
+      {
+        navItems.map((item) => (
+          <a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
